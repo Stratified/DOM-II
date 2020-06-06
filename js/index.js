@@ -7,6 +7,7 @@ const navBar = document.querySelectorAll("a");
 navBar.forEach((nav) => {
   nav.addEventListener("click", (e) => {
     e.target.style.color = "purple";
+    e.preventDefault();
   });
 });
 
@@ -34,8 +35,16 @@ imgs.forEach((img) => {
 });
 
 const body = document.querySelector("body");
-body.addEventListener("keydown", () => {
+body.addEventListener("click", (e) => {
+  body.style.backgroundColor = "teal";
+});
+body.addEventListener("keydown", (e) => {
   body.style.color = "orange";
+});
+body.addEventListener("keydown", (e) => {
+  if (e.key === "f") {
+    body.style.color = "red";
+  }
 });
 
 const para = document.querySelectorAll("p");
@@ -53,6 +62,7 @@ button.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     e.target.style.fontSize = "3rem";
     e.target.style.transition = "ease-in-out 1s";
+    e.stopPropagation();
   });
 });
 
